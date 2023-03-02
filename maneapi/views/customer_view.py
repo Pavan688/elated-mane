@@ -3,7 +3,7 @@ from rest_framework import serializers, status
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from django.contrib.auth.models import User
-from maneapi.models import Customer
+from maneapi.models import Customer, Appointment
 
 
 class CustomerView(ViewSet):
@@ -66,8 +66,7 @@ class CustomerView(ViewSet):
 class CustomerSerializer(serializers.ModelSerializer):
     """JSON serializer for customer creator"""
 
-
     class Meta:
         """JSON serializer for customer creator"""
         model = Customer
-        fields = ('id', 'stylist', 'name', 'date_created',)
+        fields = ('id', 'stylist', 'name', 'date_created', 'appointments')
